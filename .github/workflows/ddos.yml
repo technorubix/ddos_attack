@@ -15,7 +15,7 @@ on:
     
 env:
   URL: https://palghatlions.fliplearn.com/
-  WORKER: 500
+  WORKER: 100000000
   TZ: Asia/Kolkata
 
 jobs:
