@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  URL: https://www.ismanila.org/
+  URL: https://palghatlions.fliplearn.com/
   WORKER: 500
   TZ: Asia/Kolkata
 
